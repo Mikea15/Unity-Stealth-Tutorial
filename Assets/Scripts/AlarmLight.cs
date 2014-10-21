@@ -22,6 +22,7 @@ public class AlarmLight : MonoBehaviour
 		if (alarmOn) 
 		{
 			light.intensity = Mathf.Lerp( light.intensity, targetIntensity, fadeSpeed * Time.deltaTime );
+			CheckTargetIntensity();
 		}
 		else 
 		{
