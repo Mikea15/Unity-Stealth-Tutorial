@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LazerBlinking : MonoBehaviour 
+public class LaserBlinking : MonoBehaviour 
 {
 
 	public float onTime;
@@ -22,8 +22,7 @@ public class LazerBlinking : MonoBehaviour
 		{
 			SwitchBeam();
 		}
-
-		if( renderer.enabled && timer >= offTime )
+		if( !renderer.enabled && timer >= offTime )
 		{
 			SwitchBeam();
 		}
