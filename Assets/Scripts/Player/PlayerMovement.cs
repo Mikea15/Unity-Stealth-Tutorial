@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent (typeof(Animator))]
 public class PlayerMovement : MonoBehaviour 
 {
 	public AudioClip shoutingClip;		// Audio clip of the player shouting.
