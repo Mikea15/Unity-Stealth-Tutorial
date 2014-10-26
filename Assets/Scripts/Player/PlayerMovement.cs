@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent (typeof(Animator))]
 public class PlayerMovement : MonoBehaviour 
 {
 	public AudioClip shoutingClip;		// Audio clip of the player shouting.
@@ -9,14 +10,14 @@ public class PlayerMovement : MonoBehaviour
 	
 	
 	private Animator anim;				// Reference to the animator component.
-	private DoneHashIDs hash;			// Reference to the HashIDs.
+	private HashIDs hash;			// Reference to the HashIDs.
 	
 	
-	void Awake ()
+	void Awake()
 	{
 		// Setting up the references.
 		anim = GetComponent<Animator>();
-		hash = GameObject.FindGameObjectWithTag(DoneTags.gameController).GetComponent<DoneHashIDs>();
+		hash = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<HashIDs>();
 		
 		// Set the weight of the shouting layer to 1.
 		anim.SetLayerWeight(1, 1f);
