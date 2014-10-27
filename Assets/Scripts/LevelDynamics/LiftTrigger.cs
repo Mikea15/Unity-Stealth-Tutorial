@@ -75,8 +75,10 @@ public class LiftTrigger : MonoBehaviour
 			if( !audio.isPlaying )
 				audio.Play ();
 
-			if( timer >= timeToEndLevel )
+			if( timer >= timeToEndLevel ) {
 				sceneFadeInOut.EndScene();
+				Debug.LogWarning("Ending Scene");
+			}
 		}
 	}
 
