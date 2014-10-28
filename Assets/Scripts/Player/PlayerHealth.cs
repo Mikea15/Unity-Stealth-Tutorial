@@ -9,10 +9,10 @@ public class PlayerHealth : MonoBehaviour
 	
 	
 	private Animator anim;								// Reference to the animator component.
-	private DonePlayerMovement playerMovement;			// Reference to the player movement script.
-	private DoneHashIDs hash;							// Reference to the HashIDs.
-	private DoneSceneFadeInOut sceneFadeInOut;			// Reference to the SceneFadeInOut script.
-	private DoneLastPlayerSighting lastPlayerSighting;	// Reference to the LastPlayerSighting script.
+	private PlayerMovement playerMovement;			// Reference to the player movement script.
+	private HashIDs hash;							// Reference to the HashIDs.
+	private SceneFadeInOut sceneFadeInOut;			// Reference to the SceneFadeInOut script.
+	private LastPlayerSighting lastPlayerSighting;	// Reference to the LastPlayerSighting script.
 	private float timer;								// A timer for counting to the reset of the level once the player is dead.
 	private bool playerDead;							// A bool to show if the player is dead or not.
 	
@@ -21,10 +21,10 @@ public class PlayerHealth : MonoBehaviour
 	{
 		// Setting up the references.
 		anim = GetComponent<Animator>();
-		playerMovement = GetComponent<DonePlayerMovement>();
-		hash = GameObject.FindGameObjectWithTag(DoneTags.gameController).GetComponent<DoneHashIDs>();
-		sceneFadeInOut = GameObject.FindGameObjectWithTag(DoneTags.fader).GetComponent<DoneSceneFadeInOut>();
-		lastPlayerSighting = GameObject.FindGameObjectWithTag(DoneTags.gameController).GetComponent<DoneLastPlayerSighting>();
+		playerMovement = GetComponent<PlayerMovement>();
+		hash = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<HashIDs>();
+		sceneFadeInOut = GameObject.FindGameObjectWithTag(Tags.fader).GetComponent<SceneFadeInOut>();
+		lastPlayerSighting = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<LastPlayerSighting>();
 	}
 	
 	
@@ -34,9 +34,10 @@ public class PlayerHealth : MonoBehaviour
 		if(health <= 0f)
 		{
 			// ... and if the player is not yet dead...
-			if(!playerDead)
+			if(!playerDead) {
 				// ... call the PlayerDying function.
 				PlayerDying();
+			}
 			else
 			{
 				// Otherwise, if the player is dead, call the PlayerDead and LevelReset functions.

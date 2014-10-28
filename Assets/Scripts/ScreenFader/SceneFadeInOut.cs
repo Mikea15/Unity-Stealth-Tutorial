@@ -25,6 +25,8 @@ public class SceneFadeInOut : MonoBehaviour
 	public void EndScene()
 	{
 		sceneStarting = false;
+
+		Application.LoadLevel(0);
 	}
 
 }
